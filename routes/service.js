@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Service= require("../models/Services");
 const {data} =require("../init/services");
-// Get all products
+
 router.get("/services", async (req, res) => {
   try {
     const allServices = await Service.find({});
@@ -13,6 +13,6 @@ router.get("/services", async (req, res) => {
   }
 });
 
-// Additional product routes (e.g., create, update, delete) can go here
+
 
 module.exports = router;
