@@ -1,0 +1,145 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif; 
+}
+
+
+body {
+    background: linear-gradient(135deg, #E2F1FF); 
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    font-family: 'Open Sans', sans-serif; 
+}
+
+
+.about-container {
+    max-width: 1000px;
+    margin: 70px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: slideUp 1.2s ease-out; 
+}
+
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeIn 1.5s forwards ease-in;
+    margin-top: 10px;
+}
+
+.header h1 {
+    color: #7ac5dc;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); 
+    font-family: 'Montserrat', sans-serif; 
+}
+
+.header p {
+    font-size: 1.2rem;
+    color: #555;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+    font-family: 'Lora', serif; 
+}
+
+
+h2 {
+    font-size: 2.5rem;
+    color: #7ac5dc;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.05); 
+    font-family: 'Montserrat', sans-serif; 
+}
+
+.content {
+    margin-top: 30px;
+}
+
+
+section {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2); 
+    background-color: #f1f9ff; 
+}
+
+
+section p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.8;
+    font-weight: 400;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    font-family: 'Open Sans', sans-serif; 
+}
+
+section:hover p {
+    transform: translateY(-3px); 
+    opacity: 0.9;
+}
+
+
+section a {
+    display: inline-block;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 50px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-family: 'Open Sans', sans-serif; 
+}
+
+section a:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

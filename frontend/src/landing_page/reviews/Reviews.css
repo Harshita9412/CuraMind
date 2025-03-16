@@ -1,0 +1,167 @@
+
+
+
+.reviews-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1.2s ease-in-out;
+  margin-top: 120px;
+  margin-bottom: 100px;
+}
+
+
+.reviews-section {
+  margin-bottom: 40px;
+}
+
+.reviews-title {
+  text-align: center;
+  color: #6eb4c9;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  font-weight: bold;
+  opacity: 0;
+  animation: fadeInUp 1.2s ease-out forwards;
+}
+
+.reviews-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.review-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.review-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.review-rating {
+  color: #ffbc00;
+  font-size: 1.2rem;
+}
+
+.star {
+  margin-right: 5px;
+}
+
+.review-comment {
+  font-size: 1rem;
+  color: #666;
+}
+
+
+.add-review-section {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-review-title {
+  text-align: center;
+  color: #6eb4c9;
+  font-size: 1.8rem;
+  margin-top: 0;
+  font-weight: bold;
+}
+
+.add-review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-field {
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #6eb4c9;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+.input-field::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+.input-field:focus {
+  border-color: #6eb4c9;
+  outline: none;
+  background-color: #eaf7ff;
+}
+
+.submit-btn {
+  padding: 12px;
+  font-size: 1.1rem;
+  color: white;
+  background-color: #6eb4c9;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.submit-btn:hover {
+  background-color: #6eb4c9;
+  transform: scale(1.05);
+}
+
+.submit-btn:active {
+  background-color: #6eb4c9;
+  transform: scale(1);
+}
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
