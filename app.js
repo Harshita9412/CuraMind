@@ -8,6 +8,24 @@ const contactRoutes = require("./routes/contact");
 const serviceRoutes = require("./routes/service");
 
 require("dotenv").config();
+// Middleware setup
+app.use(express.json());
+// CORS setup (adjusted for local and deployed frontend URLs)
+app.use(cors({
+  origin: [
+    "http://localhost:5173",  // Local frontend during development
+    "http://localhost:3000",  // Another potential frontend (if you're using React on port 3000)
+    "https://curamind.onrender.com"  // Replace with your actual deployed frontend URL
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  exposedHeaders: ["Authorization"],
+  credentials: true
+}));
+
+
+// Handle Preflight (Important)
+app.options('*', cors());
 
 // MongoDB URL Validation
 const MONGO_URL = process.env.MONGO_URL;
@@ -23,31 +41,22 @@ mongoose.connect(MONGO_URL, {
   socketTimeoutMS: 45000
 })
 .then(() => console.log("Successfully connected to MongoDB Atlas!"))
-.catch((error) => console.error("Error connecting to MongoDB Atlas:", error));
-
-// Middleware setup
-app.use(express.json());
-// app.use(cors({
-//   origin: ["http://localhost:5173", "http://localhost:3000"], 
-//   credentials: true
-// }));
-
-app.use(cors({
-  origin: [
-    "http://localhost:5173", 
-    "http://localhost:3000", 
-    "https://your-frontend.onrender.com"  // ✅ Add your deployed frontend URL here
-  ],
-  credentials: true
-}));
+.catch((error) => {
+  console.error("Error connecting to MongoDB Atlas:", error);
+  process.exit(1); // Exit if MongoDB connection fails
+});
 
 
+
+
+
+// Serve static files (e.g., images) from the public folder
 app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
-app.use("/", serviceRoutes);
-app.use("/api/reviews", reviewRoutes);
-app.use("/api/contact", contactRoutes);
+app.use("/api", serviceRoutes);        // Services route
+app.use("/api/reviews", reviewRoutes); // Reviews route
+app.use("/api/contact", contactRoutes); // Contact route
 
 // Test Route for GET request
 app.get("/", (req, res) => {
@@ -56,8 +65,12 @@ app.get("/", (req, res) => {
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {
-  console.error("Error:", err.message);
-  res.status(500).json({ error: "Internal Server Error" });
+  console.error("Error:", err.stack);
+  if (process.env.NODE_ENV === 'development') {
+    res.status(500).json({ error: err.message });
+  } else {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 });
 
 // Production Setup for React App

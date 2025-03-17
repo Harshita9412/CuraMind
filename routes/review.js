@@ -12,6 +12,7 @@ const defaultReviews = [
 
 // GET: Fetch all reviews
 router.get("/", async (req, res) => {
+  res.json({ message: "Reviews endpoint is working!" });
   try {
     let reviews = await Review.find().sort({ createdAt: -1 });
 
