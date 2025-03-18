@@ -15,7 +15,7 @@ app.use(cors({
   origin: [
     "http://localhost:5173",  // Local frontend during development
     "http://localhost:3000",  // Another potential frontend (if you're using React on port 3000)
-    "https://curamind-frontend.up.railway.app"  // Replace with your actual deployed frontend URL
+    "https://curamind.onrender.com"  // Replace with your actual deployed frontend URL
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ["Content-Type", "Authorization"],
@@ -75,15 +75,14 @@ app.use((err, req, res, next) => {
 
 // Production Setup for React App
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "..", "frontend", "dist"))); // Correct path for Vite
+  app.use(express.static(path.join(__dirname, "frontend", "build")));
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "..", "frontend", "dist", "index.html"));
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
   });
 }
 
-
 // Start the server
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
