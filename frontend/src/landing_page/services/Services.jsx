@@ -40,7 +40,7 @@ const Services = () => {
     useEffect(() => {
         const fetchServices = async () => {
             try {
-                // await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/services`)
+                // await axios.get(`${process.env.REACT_APP_BACKEND_URL}/services`)
                 const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/services`);
 
                 

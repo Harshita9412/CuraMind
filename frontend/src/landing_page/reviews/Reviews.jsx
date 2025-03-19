@@ -13,7 +13,7 @@ const Reviews = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await fetch(`${API_URL}/api/reviews`);
+        const response = await fetch(`${API_URL}/reviews`);
         if (!response.ok) throw new Error("Failed to fetch reviews");
 
         const data = await response.json();
@@ -35,7 +35,7 @@ const Reviews = () => {
     const newReview = { name: newName, rating: newRating, comment: newComment };
 
     try {
-      const response = await fetch(`${API_URL}/api/reviews/add`, {
+      const response = await fetch(`${API_URL}/reviews/add`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newReview),
