@@ -41,7 +41,7 @@ const Services = () => {
         const fetchServices = async () => {
             try {
                 // await axios.get(`${process.env.REACT_APP_BACKEND_URL}/services`)
-                const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/services`);
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/services`);
 
                 
                 setServices(Array.isArray(response.data) ? response.data : []);
