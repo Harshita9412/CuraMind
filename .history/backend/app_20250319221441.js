@@ -52,12 +52,12 @@ mongoose.connect(MONGO_URL, {
 
 
 // Serve static files (e.g., images) from the public folder
-app.use(express.static(path.join(__dirname, "../frontend/dist")));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
 app.use("/services", serviceRoutes);        // Services route
-app.use("/reviews", reviewRoutes); // Reviews route
-app.use("/contact", contactRoutes); // Contact route
+app.use("/api/reviews", reviewRoutes); // Reviews route
+app.use("/api/contact", contactRoutes); // Contact route
 
 // Test Route for GET request
 app.get("/", (req, res) => {
