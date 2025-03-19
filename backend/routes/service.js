@@ -1,18 +1,21 @@
 const express = require("express");
 const router = express.Router();
 const Service = require("../models/Services");
-const { data } = require("../init/service");  // It's not being used, so you might want to remove it if unnecessary
 
-// Define the GET route to fetch all services
+// GET: Fetch all services
 router.get("/services", async (req, res) => {
   try {
-    const allServices = await Service.find({});  // Fetch all services from the database
-    
-    res.json(allServices);  // Send the fetched services as JSON response
-  } catch (err) {
-    console.error("Error fetching services:", err);
-    res.status(500).json({ message: "Server Error", error: err.message });
+    const allServices = await Service.find(); // No need for empty object explicitly
+
+    if (!allServices || allServices.length === 0) {
+      return res.status(404).json({ message: "No services found" });
+    }
+
+    res.status(200).json(allServices); // Clearer success response
+  } catch (error) {
+    console.error("Error fetching services:", error);
+    res.status(500).json({ message: "Server Error", error: error.message });
   }
 });
 
-module.exports = router;  // Only one module.exports here
+module.exports = router;

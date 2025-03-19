@@ -3,12 +3,10 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "build": "npm install",
-    "postinstall": "",
     "start": "node app.js",
+    
     "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-    
   },
   "keywords": [],
   "author": "",
@@ -23,8 +21,6 @@
     "mongoose": "^8.12.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9",
-    "mongoose": "^8.12.1"
-
+    "nodemon": "^3.1.9"
   }
 }

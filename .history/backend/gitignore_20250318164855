@@ -1,0 +1,25 @@
+# Node dependencies
+/node_modules
+
+# Environment variables
+.env
+
+# System files
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+/frontend/dist  # 🚫 Ignore this during development
+!frontend/dist   # ✅ Include this during deployment
+
+# IDE settings
+.vscode
+.idea
+*.iml
+
+# Railway files (if generated)
+.railway
