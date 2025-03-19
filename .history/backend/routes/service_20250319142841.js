@@ -3,7 +3,7 @@ const router = express.Router();
 const Service = require("../models/Services");
 
 // GET: Fetch all services
-router.get("/", async (req, res) => {
+router.get("/services", async (req, res) => {
   try {
     const allServices = await Service.find(); // No need for empty object explicitly
 

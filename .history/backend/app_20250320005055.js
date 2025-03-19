@@ -55,9 +55,9 @@ mongoose.connect(MONGO_URL, {
 app.use(express.static(path.join(__dirname, "../frontend","dist")));
 
 // Routes
-app.use("/services", serviceRoutes);        // Services route
-app.use("/reviews", reviewRoutes); // Reviews route
-app.use("/contact", contactRoutes); // Contact route
+app.use("/api/services", serviceRoutes);        // Services route
+app.use("/api/reviews", reviewRoutes); // Reviews route
+app.use("/api/contact", contactRoutes); // Contact route
 
 // Test Route for GET request
 app.get("/", (req, res) => {
