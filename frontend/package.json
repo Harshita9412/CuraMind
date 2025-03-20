@@ -8,7 +8,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "postinstall": "npm rebuild esbuild rollup",
+    "postinstall": "npm rebuild esbuild rollup && chmod +x node_modules/.bin/vite",
+
     "preview": "vite preview --host 0.0.0.0 --port 10000"
   },
   "dependencies": {
