@@ -16,7 +16,7 @@ app.use(cors({
   origin: [
     "http://localhost:5173",  // Local frontend during development
     "http://localhost:3000",  // Another potential frontend (if you're using React on port 3000)
-    "https://curamind.onrender.com"  
+    "https://curamind-1.onrender.com"  
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ["Content-Type", "Authorization"],
